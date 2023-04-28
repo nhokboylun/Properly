@@ -1,0 +1,8 @@
+.housebox {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+body {
+    text-align: center;
+}
