@@ -1,0 +1,166 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: #ffce00;
+  height: 100%;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: #484a4e;
+}
+
+.logo {
+  width: 50%;
+  height: 75px;
+}
+
+#photo-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  width: 100%;
+  column-gap: 1%;
+  row-gap: 15px;
+}
+
+.card-container {
+  justify-self: center;
+  text-align: center;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  font-size: 2rem;
+  font-weight: 500;
+  color: #ffffff;
+}
+
+nav {
+  display: flex;
+}
+
+.nav-item {
+  display: inline-block;
+  color: white;
+  font-size: 16px;
+  padding: 1em;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.nav-item.logout {
+  background-color: #ff0000;
+}
+
+.nav-item:hover {
+  background-color: #636d70;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  min-height: calc(100% - 4rem);
+  row-gap: 32px;
+}
+
+.search input[type="text"] {
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  width: 400px;
+  max-width: 100%;
+  margin-bottom: 1rem;
+}
+
+.search button {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  background-color: #155263;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.search button:hover {
+  background-color: #636d70;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Media Query */
+
+@media screen and (max-width: 1000px) {
+  #photo-container {
+    grid-template-columns: 1fr 1fr;
+    column-gap: 20px;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .search {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 10px;
+  }
+  .logo {
+    width: 75%;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  #locationSearch {
+    margin-bottom: 0;
+    width: 350px;
+  }
+
+  #photo-container {
+    grid-template-columns: 1fr;
+  }
+
+  header {
+    display: block;
+  }
+
+  header nav {
+    align-items: center;
+    justify-content: center;
+  }
+
+  .title {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .logo {
+    width: 100%;
+    height: 200px;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  #locationSearch {
+    width: 250px;
+  }
+}
