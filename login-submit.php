@@ -28,7 +28,7 @@ if ($result->num_rows > 0) {
         $_SESSION["user_id"] = $row["id"];
 
         // Redirecting to the buyer dashboard
-        header("Location: buyerdashboard.php");
+        header("Location: welcome.php");
         exit();
     } else {
         // Display an error message to the user
