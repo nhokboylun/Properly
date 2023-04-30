@@ -19,28 +19,17 @@
   include 'SendMail.php';
   if (isset($_POST['submitFromForgotPassword']) || isset($_POST['submit']) || isset($_POST['Verify'])) {
     /* Connect to database */
-    ob_start(); //This is optional. require by our specific website host only.
-    if(isset($_POST['submit'])){
-      // Change ur database info here.
-      $servername = "localhost";
-      $username = "root";
-      $password = "Heoboy123$%^";
-
-      // Create connection
-      $conn = new mysqli($servername, $username, $password);
-
-      // Check connection
-      if ($conn->connect_error) {
-          die("Connection failed: " . $conn->connect_error);
-      }
-
-      // Create database if not exist
-      $sqlCreate = "CREATE DATABASE IF NOT EXISTS Property_Check";
-      if (!$conn->query($sqlCreate)) {
-        echo "Error: " . $sqlCreate . "<br>" . $conn->error;
-      }
-    
-      $conn->select_db("Property_Check");
+    ob_start(); 
+    // Change your db info here
+    $servername = "localhost";
+    $username = "tnguyen565";
+    $password = "tnguyen565";
+    $db_name = "tnguyen565";
+    $conn = new mysqli($servername, $username, $password, $db_name);
+    if ($conn->connect_error) {
+      die("connection failed" . $conn->connect_error);
+    }
+    if(isset($_POST['submit'])){ 
       // Create Users table if not exist
       $sqlCreateTable = "CREATE TABLE IF NOT EXISTS Users (
         firstname VARCHAR(100) NOT NULL,
@@ -59,7 +48,7 @@
       $sqlCreateTable = "CREATE TABLE IF NOT EXISTS google_oauth (
         id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
         provider VARCHAR(255) NOT NULL,
-        provider_value TEXT NOT NULL UNIQUE
+        provider_value VARCHAR(255) NOT NULL UNIQUE
       )";
       if (!$conn->query($sqlCreateTable)) {
         echo "Error: " . $sqlCreateTable . "<br>" . $conn->error;
@@ -88,16 +77,7 @@
       $stmt->execute();
 
     } 
-          
-    // Change ur database info here.
-    $servername = "localhost";
-    $username = "root";
-    $password = "Heoboy123$%^";
-    $db_name = "Property_Check";
-    $conn = new mysqli($servername, $username, $password, $db_name);
-    if ($conn->connect_error) {
-      die("connection failed" . $conn->connect_error);
-    }
+
     if (isset($_POST['submitFromForgotPassword'])) {
       $emailReset = $_POST['emailFromForgotPassword'];
       $sqlCheck = "SELECT email FROM Users WHERE email=?";
@@ -172,7 +152,7 @@
             <a href=./SignUp.html>Sign Up</a>
           </div>
           <div class="image-container">
-            <img src="./Logo.png" alt="Placeholder Image" />
+            <img src="./logo.jpg" alt="Placeholder Image" />
           </div>
         </div> 
       </body>

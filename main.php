@@ -1,11 +1,11 @@
 <?php
-// Change ur database info here.
 session_start();
 if (isset($_SESSION['user'])){
+  // Change ur database info here.
 	$servername = "localhost";
-	$username = "root";
-	$password = "Heoboy123$%^";
-	$db_name = "Property_Check";
+	$username = "tnguyen565";
+	$password = "tnguyen565";
+	$db_name = "tnguyen565";
 
 	$conn = new mysqli($servername, $username, $password, $db_name);
 

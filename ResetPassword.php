@@ -2,10 +2,11 @@
 session_start();
 if (isset($_POST['submitFromResetPassword'])) {
   ob_start();
+  // Change ur database info here.
   $servername = "localhost";
-  $username = "root";
-  $password = "Heoboy123$%^";
-  $db_name = "Property_Check";
+	$username = "tnguyen565";
+	$password = "tnguyen565";
+	$db_name = "tnguyen565";
   $conn = new mysqli($servername, $username, $password, $db_name);
   if ($conn->connect_error) {
     die("connection failed" . $conn->connect_error);
@@ -36,7 +37,7 @@ if (!isset($_SESSION['email'])){
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="./SignUp.css" />
-  <title>Reset Password Rain Check</title>
+  <title>Reset Password Properly</title>
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
   <script>
