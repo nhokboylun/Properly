@@ -3,9 +3,9 @@ session_start();
 if (isset($_SESSION['user'])){
   // Change ur database info here.
 	$servername = "localhost";
-	$username = "tnguyen565";
-	$password = "tnguyen565";
-	$db_name = "tnguyen565";
+	$username = "wgula1";
+	$password = "wgula1";
+	$db_name = "wgula1";
 
 	$conn = new mysqli($servername, $username, $password, $db_name);
 
@@ -14,6 +14,19 @@ if (isset($_SESSION['user'])){
 	}
 
 	if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $usercheck = "SELECT firstLogIn FROM Users WHERE email ='".session['user']."'";
+    $user = $conn->query($usercheck);
+    if ($user == "n") {
+      toggle();
+      $update =  "UPDATE Users SET firstLogin = 'y' WHERE email = '".session['user']."'";
+      if ($conn->query($update) === TRUE) {
+        echo "Record updated successfully";
+      } else {
+        echo "Error updating record: " . $conn->error;
+      }
+      
+    }
+
 		if (isset($_POST["search_city"])) {
 			$search_city = $_POST["search_city"];
 			$sql = "SELECT * FROM houses WHERE house_city='$search_city'";
@@ -66,6 +79,12 @@ if (isset($_SESSION['user'])){
     ></script>
   </head>
   <body>
+      <div id="popup">
+          <h2> Welcome to our really cool website :D </h2>
+          <p>We are glad you chose us because we are the coolest</p>
+          <a href="#" onclick="toggle()">Continue to Website</a>
+      </div>
+
     <header>
       <div class="title">
         <img class="logo" src="./logo.jpg" alt="Logo" />

@@ -17,3 +17,7 @@ searchButton.addEventListener("click", () => {
   xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
   xhr.send("search_city=" + searchCity);
 });
+function toggle(){
+  var blur = document.getElementById('popup');
+  blur.classList.toggle('active')
+}
