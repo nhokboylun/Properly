@@ -1,11 +1,12 @@
 <?php
 session_start();
 if (isset($_SESSION['user'])){
+  $clientUserName = $_SESSION['user'];
   // Change ur database info here.
 	$servername = "localhost";
-	$username = "wgula1";
-	$password = "wgula1";
-	$db_name = "wgula1";
+	$username = "tnguyen565";
+	$password = "tnguyen565";
+	$db_name = "tnguyen565";
 
 	$conn = new mysqli($servername, $username, $password, $db_name);
 
@@ -14,19 +15,6 @@ if (isset($_SESSION['user'])){
 	}
 
 	if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $usercheck = "SELECT firstLogIn FROM Users WHERE email ='".session['user']."'";
-    $user = $conn->query($usercheck);
-    if ($user == "n") {
-      toggle();
-      $update =  "UPDATE Users SET firstLogin = 'y' WHERE email = '".session['user']."'";
-      if ($conn->query($update) === TRUE) {
-        echo "Record updated successfully";
-      } else {
-        echo "Error updating record: " . $conn->error;
-      }
-      
-    }
-
 		if (isset($_POST["search_city"])) {
 			$search_city = $_POST["search_city"];
 			$sql = "SELECT * FROM houses WHERE house_city='$search_city'";
@@ -45,10 +33,14 @@ if (isset($_SESSION['user'])){
 			exit();
 		}
 	} else {
+    $usercheck = "SELECT firstLogIn FROM Users WHERE email = '$clientUserName'";
+    $user = $conn->query($usercheck);
+    $value = $user->fetch_assoc()['firstLogIn'];
+    $sql = "UPDATE Users SET firstLogIn = 'y' WHERE email = '$clientUserName'";
+    $conn->query($sql);
 		$sql = "SELECT * FROM houses";
 		$result = $conn->query($sql);
 	}
-
 } else {
 	session_destroy();
 	header("Location: ./index.html");
@@ -62,21 +54,8 @@ if (isset($_SESSION['user'])){
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap"
-      rel="stylesheet"
-    />
     <link rel="stylesheet" href="main.css" />
-    <script
-      type="module"
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
-    ></script>
-    <script
-      nomodule
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
-    ></script>
+    <script src="./main.js"></script>
   </head>
   <body>
       <div id="popup">
@@ -111,7 +90,10 @@ if (isset($_SESSION['user'])){
       </div>
       <div id="photo-container"></div>
     </main>
-    <script src="./main.js"></script>
+    <?php if ($value == "n"){
+        echo "<script>toggle();</script>";
+      }
+    ?>
   </body>
 </html>
 

@@ -38,7 +38,8 @@
         password VARCHAR(255) NOT NULL,
         phonenumber VARCHAR (14) NOT NULL,
         EmailStatus SMALLINT DEFAULT 0,
-        Code INT(6) DEFAULT NULL
+        Code INT(6) DEFAULT NULL,
+        firstLogIn CHAR(1) NOT NULL
       )";
       if (!$conn->query($sqlCreateTable)) {
         echo "Error: " . $sqlCreateTable . "<br>" . $conn->error;
@@ -215,7 +216,7 @@
       $lastname_c =  $_POST['lastname'];
       $password_c = password_hash($_POST['pass'], PASSWORD_DEFAULT);
       $tel_c = $_POST['phonenumber'];
-      $sql = "INSERT INTO Users (firstname,lastname,email,password,phonenumber,Code) VALUES ('$firstname_c', '$lastname_c', '$email_c', '$password_c', '$tel_c', '$code')";
+      $sql = "INSERT INTO Users (firstname,lastname,email,password,phonenumber,Code,firstLogIn) VALUES ('$firstname_c', '$lastname_c', '$email_c', '$password_c', '$tel_c', '$code', 'no')";
       mysqli_query($conn, $sql);
       $id = rand(1, 2);
       $sqlInputResetCode = "SELECT provider_value FROM google_oauth WHERE id = $id;";
