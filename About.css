@@ -70,17 +70,16 @@ nav {
 }
 
 .house {
-  display: block; 
-  margin: 0 auto; 
-  text-align: center; 
+  display: block;
+  margin: 0 auto;
+  text-align: center;
 }
 
-.des{
+.des {
   text-align: center;
-  justify-content: center;
-  align-items: center;
+  padding-bottom: 20px;
 }
-.idk{
+.idk {
   width: 250px;
   height: auto;
 }
