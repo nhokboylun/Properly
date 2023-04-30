@@ -68,3 +68,19 @@ nav {
   font-weight: 500;
   color: #ffffff;
 }
+
+.house {
+  display: block; 
+  margin: 0 auto; 
+  text-align: center; 
+}
+
+.des{
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+.idk{
+  width: 250px;
+  height: auto;
+}
