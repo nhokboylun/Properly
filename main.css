@@ -165,23 +165,90 @@ main {
   }
 }
 
-#popup
-{
+#popup {
   position: fixed;
-  top:40%;
+  top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 600px;
   padding: 50px;
-  box-shadow: 0 5px 30px rgba(0, 0, 0, .30);
+  box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
   background-color: #ffffff;
   visibility: hidden;
   opacity: 0;
   transition: 0.5s;
 }
-#popup.active
-{
+#popup.active {
   visibility: visible;
   opacity: 1;
   transition: 0.5s;
+}
+
+#filterFormContainer {
+  display: none;
+  background-color: #f8f8f8;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+  width: 100%;
+  max-width: 500px;
+}
+
+#filterFormContainer label {
+  display: block;
+  margin: 5px 0;
+}
+
+#filterFormContainer input {
+  width: 100%;
+  padding: 5px;
+  margin: 5px 0;
+  box-sizing: border-box;
+}
+
+#filterFormContainer button {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 20px;
+  margin: 10px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  max-width: 150px;
+}
+
+#filterFormContainer button:hover {
+  opacity: 0.8;
+}
+
+#filterFormContainer .range {
+  display: flex;
+  align-items: center;
+}
+
+#filterFormContainer .range input {
+  width: 40%;
+}
+
+#filterFormContainer .range label {
+  margin: 0 5px;
+}
+
+#filterFormContainer .parking-options {
+  justify-content: space-evenly;
+  display: flex;
+  align-items: center;
+}
+
+#filterFormContainer .parking-options input {
+  margin-right: 5px;
+}
+
+.centered-button-container {
+  display: flex;
+  justify-content: center;
+}
+.centered-button {
+  margin-top: 10px;
 }
