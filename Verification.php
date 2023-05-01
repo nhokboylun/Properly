@@ -39,7 +39,8 @@
         phonenumber VARCHAR (14) NOT NULL,
         EmailStatus SMALLINT DEFAULT 0,
         Code INT(6) DEFAULT NULL,
-        firstLogIn CHAR(1) NOT NULL
+        firstLogIn CHAR(1) NOT NULL,
+        wishList VARCHAR(1000)
       )";
       if (!$conn->query($sqlCreateTable)) {
         echo "Error: " . $sqlCreateTable . "<br>" . $conn->error;

@@ -14,6 +14,11 @@ if (isset($_SESSION['user'])) {
     die("Connection failed: " . $conn->connect_error);
   }
 
+  //wish list display
+  $sql_wishlist = "SELECT wishList FROM Users WHERE email = '$clientUserName'";
+  $result_wishlist = $conn->query($sql_wishlist);
+  $wishlist_data = $result_wishlist->fetch_assoc();
+  $wishlist_array = explode(',', $wishlist_data['wishList']);
   if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST["search_city"])) {
       $search_city = $_POST["search_city"];
@@ -37,7 +42,7 @@ if (isset($_SESSION['user'])) {
     $result = $conn->query($sql);
     if ($result->num_rows > 0) {
       while ($row = $result->fetch_assoc()) {
-        echo '<a href="houseInfo.php">';
+        echo '<a href="houseInfo.php?house_id=' . $row['id'] . '">';
         echo '<div class="card-container">';
         echo "<img src='image.php?filename=" . htmlspecialchars($row['house_image']) . "' width='200' height='150'>";
         echo "<h4>" . $row['house_info'] . "</h4>";
@@ -175,7 +180,27 @@ if (isset($_SESSION['user'])) {
           </form>
         </div>
       </div>
-      <div id="photo-container"></div>
+      <div class="photo-container wish-list">
+        <?php
+        if (isset($wishlist_array) && count($wishlist_array) > 0) {
+          foreach ($wishlist_array as $house_id) {
+            $house_query = "SELECT * FROM houses WHERE id='$house_id'";
+            $house_result = $conn->query($house_query);
+            $house_data = $house_result->fetch_assoc();
+            echo '<a href="houseInfo.php?house_id=' . $house_id . '">';
+            echo '<div class="card-container">';
+            echo "<img src='image.php?filename=" . htmlspecialchars($house_data['house_image']) . "' width='200' height='150'>";
+            echo "<h4>" . $house_data['house_info'] . "</h4>";
+            echo "<p>" . $house_data['house_city'] . "</p>";
+            echo "<p>$" . $house_data['house_price'] . "</p>";
+            echo "</div>";
+            echo '</a>';
+          }
+        } 
+        mysqli_close($conn);
+        ?>
+      </div>
+      <div id="photo-container" class="photo-container"></div>
     </main>
     <?php if ($value == "n"){
         echo "<script>toggle();</script>";
