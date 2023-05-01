@@ -4,9 +4,9 @@ if (isset($_SESSION['user'])) {
   $clientUserName = $_SESSION['user'];
   // Change ur database info here.
   $servername = "localhost";
-  $username = "tnguyen565";
-  $password = "tnguyen565";
-  $db_name = "tnguyen565";
+  $username = "stea1";
+  $password = "stea1";
+  $db_name = "stea1";
 
   $conn = new mysqli($servername, $username, $password, $db_name);
 
@@ -180,7 +180,14 @@ if (isset($_SESSION['user'])) {
           </form>
         </div>
       </div>
+
       <div class="photo-container wish-list">
+        <div class="wurd">
+        <h2 class="tet">
+        <span class="werd werd-1">My</span>
+        <span class="werd werd-2">Wishlist:</span>
+        </h2>
+      </div>
         <?php
         if (isset($wishlist_array) && count($wishlist_array) > 0) {
           foreach ($wishlist_array as $house_id) {
@@ -208,4 +215,3 @@ if (isset($_SESSION['user'])) {
     ?>
   </body>
 </html>
-
