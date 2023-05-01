@@ -80,7 +80,7 @@ if (isset($_POST['submitFromSignIn'])) {
                     array("./img/athens1.jpg", "835 Ansbeth Way", "Athens", "410000", "3", "3", "2,302", "2016", "y", "Beautiful 3-bedroom home with an open floor plan, a modern kitchen, and a serene backyard with a patio."),
                     array("./img/athens2.jpg", "124 Pin Oak Ct", "Athens", "585000", "5", "3", "4,934", "1985", "y", "Expansive 5-bedroom home with a large living area, an updated kitchen, and a stunning backyard perfect for entertaining."),
                     array("./img/athens3.jpg", "2576 Ryland Hills Dr", "Athens", "700000", "8", "4", "4,294", "2007", "y", "Impressive 8-bedroom estate with a spacious living area, a chef's kitchen, and a resort-style backyard."),
-                    array("./img/athens4.jpg", "445 Cedar Creek Dr", "Athens", "330,000", "3", "2", "1,720", "1983", "y", "Charming 3-bedroom ranch with an inviting living space, a renovated kitchen, and a peaceful backyard with a deck."),
+                    array("./img/athens4.jpg", "445 Cedar Creek Dr", "Athens", "330000", "3", "2", "1,720", "1983", "y", "Charming 3-bedroom ranch with an inviting living space, a renovated kitchen, and a peaceful backyard with a deck."),
                     array("./img/athens5.jpg", "637 Huntington C-2 Rd Unit C-2", "Athens", "219900", "2", "3", "1,168", "2000", "y", "Cozy 2-bedroom townhome with an open living area, a functional kitchen, and a private patio."),
                     array("./img/athens6.jpg", "1161 Ruby Way", "Athens", "449000", "3", "2", "2,438", "2004", "y", "Lovely 3-bedroom home with a bright living area, a modern kitchen, and a spacious backyard with a pergola."),
                     // Roswell houses...

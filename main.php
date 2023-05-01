@@ -37,14 +37,17 @@ if (isset($_SESSION['user'])) {
     $result = $conn->query($sql);
     if ($result->num_rows > 0) {
       while ($row = $result->fetch_assoc()) {
+        echo '<a href="houseInfo.php">';
         echo '<div class="card-container">';
         echo "<img src='image.php?filename=" . htmlspecialchars($row['house_image']) . "' width='200' height='150'>";
         echo "<h4>" . $row['house_info'] . "</h4>";
         echo "<p>" . $row['house_city'] . "</p>";
+        echo "<p>$" . $row['house_price'] . "</p>";
         echo "</div>";
+        echo '</a>';
       }
     } else {
-      echo "No results found.";
+      echo '<p style="text-align:center;grid-column:1/-1;"> No results found. </p>';
     }
     exit();
   } else {

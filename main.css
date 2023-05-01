@@ -37,6 +37,11 @@ header {
 .card-container {
   justify-self: center;
   text-align: center;
+  background-color: #ffffff;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  padding: 1rem;
+  max-width: 100%;
 }
 
 .title {
@@ -184,15 +189,23 @@ main {
   transition: 0.5s;
 }
 
+.search {
+  position: relative;
+}
+
 #filterFormContainer {
   display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
   background-color: #f8f8f8;
   border-radius: 10px;
   padding: 20px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  margin-top: 20px;
   width: 100%;
   max-width: 500px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  z-index: 100;
 }
 
 #filterFormContainer label {
@@ -251,4 +264,22 @@ main {
 }
 .centered-button {
   margin-top: 10px;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  color: #16ce44;
+}
+
+.card-container:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.card-container img {
+  width: 100%;
+  height: 200px;
 }
