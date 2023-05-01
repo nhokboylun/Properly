@@ -180,14 +180,15 @@ if (isset($_SESSION['user'])) {
           </form>
         </div>
       </div>
-
-      <div class="photo-container wish-list">
-        <div class="wurd">
+      
+      <div class="wurd">
         <h2 class="tet">
         <span class="werd werd-1">My</span>
         <span class="werd werd-2">Wishlist:</span>
         </h2>
       </div>
+
+      <div class="photo-container wish-list">
         <?php
         if (isset($wishlist_array) && count($wishlist_array) > 0) {
           foreach ($wishlist_array as $house_id) {
