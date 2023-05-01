@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const filterForm = document.getElementById("filterForm");
   filterForm.addEventListener("submit", (event) => {
     event.preventDefault(); // Prevent the default submit action
-
+    toggleFilterForm();
     // Get the filter form values
     const formData = new FormData(filterForm);
     const searchParams = new URLSearchParams(formData);

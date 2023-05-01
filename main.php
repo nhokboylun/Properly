@@ -78,8 +78,42 @@ if (isset($_SESSION['user'])) {
 
   <body>
     <div id="popup">
-      <h2> Welcome to our really cool website :D </h2>
-      <p>We are glad you chose us because we are the coolest</p>
+      <h1>Welcome Aboard!</h1>
+      <p>🎉 Congratulations on joining our fantastic community! 🎉</p>
+      <p>Here, you'll find the most amazing properties tailored to your preferences. Browse through our selection, and don't hesitate to reach out if you have any questions. We're here to help you find your dream home! 🏡</p>
+      <p>
+          At Properly, we're committed to making your home buying experience as
+          easy, efficent, and stress-free as possible.
+        </p>
+        <p>
+          Our team of very experience real estate professionals has decades of
+          comvined experience in the industry.
+        </p>
+        <p>We put our dedication to helping you finding your perfect home!</p>
+        <p>
+          To do this, we believe that exceptional customer service is the key to
+          a successful home buying experience.
+        </p>
+        <p>
+          We're always here to help you navigate the process, answer any
+          questions you may have, and ensure that you feeel supported
+        </p>
+        <p>
+          While are other competitors may have a well known and larger platforms
+          compared to ours, Properly sets itself apart
+        </p>
+        <p>
+          by offering a seamless, user-friendly experience that's focused on
+          helping you find the perfect home in the most effiencet and effective
+          way.
+        </p>
+        <p>
+          Our commitment to transparency, integrity and exceptional customer
+          service make us the ideal choice for anyone looking to buy a home with
+          confidence and ease.
+        </p>
+        <p>So why not look for your dream home in the most proper way!!!!</p>
+        <p></p>
       <a href="#" onclick="toggle()">Continue to Website</a>
     </div>
 
