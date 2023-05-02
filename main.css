@@ -296,9 +296,10 @@ a:hover {
   margin: 0 -.25rem;
   padding: 0 .25rem;
   transition: color .3s ease-in-out, box-shadow .3s ease-in-out;
+  background-image: "./img/winder.jpg";
 }
 .wish-list:hover{
-  box-shadow: inset 100px 0 0 0 #54b3d6;
+  box-shadow: inset 2000px 0 0 0 #54b3d6;
   color:white;
 }
 .werd {
