@@ -79,6 +79,10 @@ nav {
   top: 455px;
   left:140px;
   position:absolute;
+  transition: transform 250ms;
+}
+#wishlist-btn:hover {
+  transform: translateY(-10px);
 }
 
 .box {
@@ -107,4 +111,22 @@ dt {
 }
 dd {
   font-size:9px;
+}
+.box dl dd {
+  font-size: 16px;
+  line-height: 1.5;
+  color: #333;
+  margin-bottom: 10px;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+.box dl:hover dd {
+  opacity: 10;
+}
+.box dl dt:hover {
+  color: #4caf50;
+}
+.box dl dd:hover {
+  transform: translateX(10px);
+  color: #ffce00;
 }
