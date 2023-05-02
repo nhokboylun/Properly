@@ -132,11 +132,62 @@ if (isset($_SESSION['user']) && isset( $_GET['house_id'])) {
         </form>
       </nav>
     </header>
-    
-    <!-- You start to edit here, Beenye -->
-    <main>
-      <button id = "wishlist-btn">Add to wish list</button>
-    </main>
+    <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <link rel="stylesheet" href="houseInfo.css" />
+  </head>
+  <body>
+    <header>
+      <div class="title">
+        <img class="logo" src="./logo.jpg" alt="Logo" />
+        <span>PROPERLY</span>
+      </div>
+      <nav>
+        <a href="./main.php" class="nav-item">Home</a>
+        <a href="./About.html" class="nav-item">About Us</a>
+        <form method="post" action="./logout.php">
+          <input
+            class="nav-item logout"
+            type="submit"
+            name="logout"
+            value="Logout"
+          />
+        </form>
+      </nav>
+    </header>
+    <div class="clearfix">
+      <div class="box">
+            <img src="<?php echo $image; ?>"/>
+      </div>
+    <div class="box" style="background-color:white">
+    <dl>
+    <dt>House Information</dt>  
+      <dd><?php echo $info; ?></dd>  
+    <dt>City</dt>  
+      <dd><?php echo $city; ?></dd>  
+    <dt>City</dt>  
+      <dd><?php echo $city; ?></dd>  
+    <dt>Price</dt>  
+      <dd><?php echo $price; ?></dd>  
+    <dt>Bedroom/Bath</dt>  
+      <dd>Bedroom's: <?php echo $bedRoom; ?> Bathroom's: <?php echo $bathRoom; ?></dd>  
+    <dt>Size</dt>  
+      <dd><?php echo $squareFt; ?> Square Feet</dd>  
+    <dt>Age</dt>  
+      <dd>Built in: <?php echo $year; ?></dd>  
+    <dt>Parking</dt>  
+      <dd><?php echo $parking; ?></dd>  
+    <dt>House Description</dt>  
+      <dd><?php echo $description; ?></dd>  
+  </dl>
+    </div>
+    <button id = "wishlist-btn">Add to wish list</button>
+  </div>
+
 
     <script>
       let wishlistBtn = document.getElementById("wishlist-btn");
