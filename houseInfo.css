@@ -76,16 +76,20 @@ nav {
   display: inline-block;
   font-size: 16px;
   border-radius: 8px;
-  top: 350px;
+  top: 455px;
   left:140px;
   position:absolute;
 }
 
 .box {
   float: left;
-  width: 50%;
+  width: 100%;
   padding: 50px;
-  height: 300px;
+  height: 500px;
+  position: relative;
+  background-size: center;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .clearfix::after {
