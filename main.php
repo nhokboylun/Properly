@@ -130,7 +130,6 @@ if (isset($_SESSION['user'])) {
       <nav>
         <a class="nav-item">Home</a>
         <a href="./About.html" class="nav-item">About Us</a>
-        <form method="post" action="./logout.php">
           <input
             class="nav-item logout"
             type="submit"
@@ -180,7 +179,7 @@ if (isset($_SESSION['user'])) {
           </form>
         </div>
       </div>
-      
+
       <div class="wurd">
         <h2 class="tet">
         <span class="werd werd-1">My</span>
@@ -188,26 +187,63 @@ if (isset($_SESSION['user'])) {
         </h2>
       </div>
 
-      <div class="photo-container wish-list">
-        <?php
-        if (isset($wishlist_array) && count($wishlist_array) > 0) {
-          foreach ($wishlist_array as $house_id) {
-            $house_query = "SELECT * FROM houses WHERE id='$house_id'";
-            $house_result = $conn->query($house_query);
-            $house_data = $house_result->fetch_assoc();
-            echo '<a href="houseInfo.php?house_id=' . $house_id . '">';
-            echo '<div class="card-container">';
-            echo "<img src='image.php?filename=" . htmlspecialchars($house_data['house_image']) . "' width='200' height='150'>";
-            echo "<h4>" . $house_data['house_info'] . "</h4>";
-            echo "<p>" . $house_data['house_city'] . "</p>";
-            echo "<p>$" . $house_data['house_price'] . "</p>";
-            echo "</div>";
-            echo '</a>';
-          }
-        } 
-        mysqli_close($conn);
-        ?>
-      </div>
+    <div>
+    <form method="post" action="">
+      <label for="sort" class="surt">Sort by:</label>
+        <select name="sort" id="sort">
+          <option value="price_low">Price (Low to High)</option>
+          <option value="price_high">Price (High to Low)</option>
+          <option value="city_A">City (A-Z)</option>
+          <option value="city_Z">City (Z-A)</option>
+        </select>
+      <input type="submit" name="submit" value="Sort">
+    </form>
+    </div>
+
+<div class="photo-container wish-list">
+  <?php
+  $sort = $_POST['sort'] ?? '';
+  
+  if (isset($wishlist_array) && count($wishlist_array) > 0) {
+    $house_ids = implode(',', $wishlist_array);
+    
+    $sort_query = '';
+    switch ($sort) {
+      case 'price_low':
+        $sort_query = 'ORDER BY house_price ASC';
+        break;
+      case 'price_high':
+        $sort_query = 'ORDER BY house_price DESC';
+        break;
+      case 'city_A':
+        $sort_query = 'ORDER BY house_city ASC';
+        break;
+      case 'city_Z':
+        $sort_query = 'ORDER BY house_city DESC';
+        break;
+      default:
+        $sort_query = '';
+    }
+    
+    $house_query = "SELECT * FROM houses WHERE id IN ($house_ids) $sort_query";
+    $house_result = $conn->query($house_query);
+    
+    while ($house_data = $house_result->fetch_assoc()) {
+      $house_id = $house_data['id'];
+      echo '<a href="houseInfo.php?house_id=' . $house_id . '">';
+      echo '<div class="card-container">';
+      echo "<img src='image.php?filename=" . htmlspecialchars($house_data['house_image']) . "' width='200' height='150'>";
+      echo "<h4>" . $house_data['house_info'] . "</h4>";
+      echo "<p>" . $house_data['house_city'] . "</p>";
+      echo "<p>$" . $house_data['house_price'] . "</p>";
+      echo '<button class="remove" data-house-id="' . $house_id . '">Remove</button>';
+      echo "</div>";
+      echo '</a>';
+    }
+  }
+  mysqli_close($conn);
+  ?>
+</div>
       <div id="photo-container" class="photo-container"></div>
     </main>
     <?php if ($value == "n"){
