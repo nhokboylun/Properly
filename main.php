@@ -248,7 +248,7 @@ if (isset($_SESSION['user'])) {
         mysqli_close($conn);
         ?>
       </div>
-      <div id="photoContainer" class="photo-container"></div>
+      <div id="photo-container" class="photo-container"></div>
     </main>
     <?php if ($value == "n"){
         echo "<script>toggle();</script>";
