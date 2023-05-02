@@ -132,8 +132,8 @@ if (isset($_SESSION['user']) && isset( $_GET['house_id'])) {
       </nav>
     </header>
     <div class="clearfix">
-      <div class="box">
-            <img src="<?php echo $image; ?>"/>
+      <div class="box" style="background-image: url(<?php echo $image; ?>)">
+            <button id = "wishlist-btn">Add to wish list</button>
       </div>
     <div class="box" style="background-color:white">
     <dl>
@@ -154,9 +154,8 @@ if (isset($_SESSION['user']) && isset( $_GET['house_id'])) {
     <dt>House Description</dt>  
       <dd><?php echo $description; ?></dd>  
   </dl>
-    <button id = "wishlist-btn">Add to wish list</button>
     </div>
-    </div>
+</div>
 
 
 
