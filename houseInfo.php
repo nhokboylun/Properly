@@ -172,7 +172,7 @@ if (isset($_SESSION['user']) && isset( $_GET['house_id'])) {
     <dt>City</dt>  
       <dd><?php echo $city; ?></dd>  
     <dt>Price</dt>  
-      <dd><?php echo $price; ?></dd>  
+      <dd>$<?php echo $price; ?></dd>  
     <dt>Bedroom/Bath</dt>  
       <dd>Bedroom's: <?php echo $bedRoom; ?> Bathroom's: <?php echo $bathRoom; ?></dd>  
     <dt>Size</dt>  
@@ -185,8 +185,9 @@ if (isset($_SESSION['user']) && isset( $_GET['house_id'])) {
       <dd><?php echo $description; ?></dd>  
   </dl>
     </div>
+    </div>
     <button id = "wishlist-btn">Add to wish list</button>
-  </div>
+
 
 
     <script>
