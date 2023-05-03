@@ -3,15 +3,14 @@ session_start();
 if (isset($_SESSION['user'])) {
   $clientUserName = $_SESSION['user'];
   // Change ur database info here.
+  // include 'Database.php';
   $servername = "localhost";
   $username = "tnguyen565";
   $password = "tnguyen565";
   $db_name = "tnguyen565";
-
   $conn = new mysqli($servername, $username, $password, $db_name);
-
   if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+    die("connection failed" . $conn->connect_error);
   }
 
   //wish list display
@@ -204,7 +203,7 @@ if (isset($_SESSION['user'])) {
       <div class="photo-container wish-list">
         <?php
         $sort = $_POST['sort'] ?? '';
-        if (isset($wishlist_array) && count($wishlist_array) > 0) {
+        if (isset($wishlist_array) && count($wishlist_array) > 0 && $wishlist_array[0] !== "") {
           $house_ids = implode(',', $wishlist_array);
           
           $sort_query = '';
@@ -243,7 +242,9 @@ if (isset($_SESSION['user'])) {
             }
           } else {
             echo '<p style="grid-column: 1/-1;justify-self: center;font-size: 48px;color: orangered;">You have not wish any house yet.</p>';
-          }
+          }   
+        } else {
+          echo '<p style="grid-column: 1/-1;justify-self: center;font-size: 48px;color: orangered;">You have not wish any house yet.</p>';
         }
         mysqli_close($conn);
         ?>
